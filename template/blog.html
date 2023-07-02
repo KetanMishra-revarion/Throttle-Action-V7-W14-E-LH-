@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block title %}
+Throttle Action | {{post.title}}
+{% endblock title %}
+{% block addcss %}
+<style>
+	.gallery
+	{
+		height: 480px;
+		width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		overflow: hidden;
+	}
+	.carousel-item img 
+	{
+		height: 100%;
+		width: 100%;
+	}
+	@media(max-width:480px)
+	{
+		.gallery
+	{
+		height: 250px;
+		width: 92%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		overflow: hidden;
+	}
+	}
+</style>
+{% endblock addcss %}
+{% block body %} 
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+						<a class="text-danger" >Detailed Review</a>
+					</p>
+					<h1 class="display-4 secondfont mb-3 font-weight-bold">{{post.title}}</h1>
+					<p class="mb-3">
+						{{post.SEO_description|safe}}
+					</p>
+					<div class="d-flex align-items-center">
+						<img class="rounded-circle" src="/media/{{post.author.ProflePic}}" width="70">
+						<small class="ml-2">{{post.created_on}}<span class="text-muted d-block">{{post.author}} &middot; 5 min. read</span>
+						</small>
+					</div>
+				</div>
+				<div class="col-md-6 pr-0">
+					<img src="/media/{{post.banner}}">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container pt-4 pb-4">
+	<div class="row justify-content-center">
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.throttleaction.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-8">
+			<article class="article-post">
+                {{post.content|safe}}
+		</article>
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-5 mb-2 mb-md-0">
+						<h5 class="font-weight-bold secondfont">Become a member</h5>
+						 Get the latest updates right in your inbox. We never spam!
+					</div>
+					<div class="col-md-7">
+						<form class="row" action="/subscribe" method="POST">
+							{% csrf_token %}
+							<div class="col-md-12">
+								<input type="text" class="form-control" name="email" placeholder="Enter your e-mail address">
+							</div>
+							<div class="col-md-12 mt-2">
+								<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container pt-4 pb-4">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card border-0 mb-4 box-shadow h-xl-300">              
+                <div style="background-image: url(/media/Reviews/Banner/Adventure\ 390.png); height: 150px;    background-size: cover;    background-repeat: no-repeat;"></div>               
+				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+					<h2 class="h4 font-weight-bold">
+					<a class="text-dark" href="/showreview/exploring-the-ktm-adventure-390-variants">KTM Adevnture 390 Line Up Explained!</a>
+					</h2>
+					<p class="card-text">
+						 Here is a detailed analysis of the KTM Aventure 390 and all its variants. Read more to choose the perfect one for you!
+					</p>
+					<div>
+						<small class="d-block"><a class="text-muted">Minaketan Mishra</a></small>
+						<small class="text-muted">Jul 27 &middot; 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="flex-md-row mb-4 box-shadow h-xl-300">
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="/media/Reviews/Banner/Avenis_intro.png">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="/showreview/	suzuki-avenis-125-full-review">Suzuki Avenis 125: Full Review</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Kajol Dash
+						</div>
+						<small class="text-muted">Jul 27 &middot; 5 min read</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="/media/Reviews/Banner/WhatsApp_Image_2022-12-28_at_22.20.25.png">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="/article">Suzuki V-Strom 250 SX - Exploring Adventure in Style</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Minaketan Mishra
+						</div>
+						<small class="text-muted">Jul 27 &middot; 5 min read</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="/media/Reviews/Banner/2021-Himalayan-Royal-Enfield-7.jpg">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="/showreview/royal-enfield-himalayan-411-a-true-adventure-companion">	Royal Enfield Himalayan 411 - A True Adventure Companion</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Kajol Dash
+						</div>
+						<small class="text-muted">Jul 27 &middot; 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Main -->
+
+{% endblock body %}
+{% block script %}
+
+{% endblock script %}

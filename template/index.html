@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock title %}
+{% block addcss %}
+{% endblock addcss %}
+{% block body %}
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
+		<div class="pl-4 pr-0 h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 align-self-center">
+					<h1 class="secondfont mb-3 font-weight-bold">Welcome to Throttle <span style="color: red;">Action</span> </h1>
+					<p class="mb-3">
+						Get comprehensive reviews on bikes and accessories, detailed comparison and motorsports
+					</p>
+					<a href="/about" class="btn btn-dark">About us!</a>
+				</div>
+				<div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url(/static/assets/img/index_1.png);">	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container pt-4 pb-4">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card border-0 mb-4 box-shadow h-xl-300">              
+                <div style="background-image: url(/media/Reviews/Banner/Adventure\ 390.png); height: 150px;    background-size: cover;    background-repeat: no-repeat;"></div>               
+				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+					<h2 class="h4 font-weight-bold">
+					<a class="text-dark" href="/showreview/exploring-the-ktm-adventure-390-variants">KTM Adevnture 390 Line Up Explained!</a>
+					</h2>
+					<p class="card-text">
+						 Here is a detailed analysis of the KTM Aventure 390 and all its variants. Read more to choose the perfect one for you!
+					</p>
+					<div>
+						<small class="d-block"><a class="text-muted">Minaketan Mishra</a></small>
+						<small class="text-muted">Jul 27 &middot; 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="flex-md-row mb-4 box-shadow h-xl-300">
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="/media/Exclusive/Banner/ev.jpeg">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="/showexclusive/underwhelming-facts-about-evs-nobody-talks-about">Underwhelming facts about EVs nobody talks about</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Minaketan Mishra
+						</div>
+						<small class="text-muted">Jul 27 &middot; 5 min read</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="/media/Exclusive/Banner/self-driving-car-concept.PNG">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="/showexclusive/the-relevance-of-autonomous-vehicles-in-india">The Relevance of Autonomous Vehicles in India</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Minaketan Mishra
+						</div>
+						<small class="text-muted">Jul 28 &middot; 5 min read</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="/media/Exclusive/Banner/pexels-photo-357861.jpeg">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="/showexclusive/bharat-stage-vi-bs-vi-emission-norms-a-leap-towards-cleaner-air">	Bharat Stage VI (BS-VI) Emission Norms: A Leap Towards Cleaner Air</a>
+						</h2>
+						<div class="card-text text-muted small">
+							 Minaketan Mishra
+						</div>
+						<small class="text-muted">Jul 28 &middot; 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    
+<div class="container">
+	<div class="row justify-content-between">
+		<div class="col-md-8">
+			<h5 class="font-weight-bold spanborder"><span>Latest Reviews</span></h5>
+			{% for i in reviewlist|slice:":3" %}
+			{% if i.Status_article == "active"  %}
+			{% if i.Product.Category == "1"  %}
+			<div class="mb-3 d-flex justify-content-between">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+					<a class="text-dark" href="showreview/{{i.slug}}">{{i.title}}</a>
+					</h2>
+					<p>
+						{{i.SEO_description|safe}}
+					</p>
+					<div class="card-text text-muted small">
+						 {{i.author}}
+					</div>
+					<small class="text-muted">{{i.created_on}} &middot; 5 min read</small>
+				</div>
+				<img height="120" src="media/{{i.banner}}">
+			</div>
+			{% endif %}
+            {% endif %}
+            {% endfor %}
+		</div>
+		<div class="col-md-4 pl-4">
+            <h5 class="font-weight-bold spanborder"><span>Popular</span></h5>
+			<ol class="list-featured">
+				<li>
+				<span>
+				<h6 class="font-weight-bold">
+				<a href="/showreview/suzuki-v-strom-250-sx-exploring-adventure-in-style" class="text-dark">Suzuki V-Strom 250 SX - Exploring Adventure in Style</a>
+				</h6>
+				<p class="text-muted">
+				    Minaketan Mishra
+				</p>
+				</span>
+				</li>
+				<li>
+				<span>
+				<h6 class="font-weight-bold">
+				<a href="/showexclusive/underwhelming-facts-about-evs-nobody-talks-about" class="text-dark">Underwhelming facts about EVs nobody talks about</a>
+				</h6>
+				<p class="text-muted">
+					Kajol Dash
+				</p>
+				</span>
+				</li>
+				<li>
+				<span>
+				<h6 class="font-weight-bold">
+				<a href="/showexclusive/shared-mobility-services-in-india-transforming-transportation-landscape" class="text-dark">Shared Mobility Services in India: Transforming Transportation Landscape</a>
+				</h6>
+				<p class="text-muted">
+					Minaketan Mishra
+				</p>
+				</span>
+				</li>
+				<li>
+				<span>
+				<h6 class="font-weight-bold">
+				<a href="/showreview/exploring-the-ktm-adventure-390-variants" class="text-dark">	Exploring the KTM Adventure 390 Variants</a>
+				</h6>
+				<p class="text-muted">
+					Minaketan Mishra
+				</p>
+				</span>
+				</li>
+			</ol>
+		</div>
+	</div>
+</div>
+{% endblock body %}
+{% block script %}
+<script src="/static/assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/vendor/popper.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/functions.js" type="text/javascript"></script>
+{% endblock script %}
+
+    
+    
+
